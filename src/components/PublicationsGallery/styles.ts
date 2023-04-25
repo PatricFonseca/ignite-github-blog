@@ -12,14 +12,21 @@ export const Container = styled.div`
   padding: 0.3rem;
 `
 
-export const PublicationItem = styled.div`
+export const PublicationItem = styled.a`
   width: 26rem;
   height: 15.5rem;
   background: ${(props) => props.theme['light-steelblue-400']};
   border-radius: 10px;
+  border: 2px solid ${(props) => props.theme['light-steelblue-400']};
   padding: 2rem;
   overflow: hidden;
   flex-grow: 1;
+  text-decoration: none;
+  transition: border 0.2s;
+
+  &:hover {
+    border: 2px solid #3a536b;
+  }
 
   p {
     font-weight: 400;

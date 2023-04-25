@@ -1,25 +1,5 @@
 import styled from 'styled-components'
 
-interface HeaderProps {
-  backgroundImage: string
-}
-
-export const Header = styled.header<HeaderProps>`
-  /* background-image: url(${import.meta.env.VITE_PUBLIC_URL}/header.svg); */
-  background-image: url(${(props) => props.backgroundImage});
-  width: 100%;
-  height: 18.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 9.25rem;
-    height: 6.12rem;
-    margin-bottom: 2rem;
-  }
-`
-
 export const Profile = styled.div`
   display: grid;
   grid-template-areas:
@@ -38,8 +18,6 @@ export const Profile = styled.div`
     width: 9.25rem;
     border-radius: 8px;
   }
-
-  /* margin-top: -5rem; */
 `
 
 export const InfoProfile = styled.div`
@@ -99,16 +77,4 @@ export const Footer = styled.footer`
   span {
     margin-left: 0.2rem;
   }
-`
-
-export const Teste = styled.a`
-  text-decoration: none;
-  color: ${(props) => props.theme['blue-400']};
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.75rem;
-  line-height: 160%;
-  padding: 0;
-  display: inline-block;
-  padding: 5px 10px;
 `

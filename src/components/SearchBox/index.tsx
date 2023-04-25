@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, KeyboardEvent } from 'react'
+import { useState, useContext, KeyboardEvent } from 'react'
 import { api } from '../../libs/axios'
 import { PublicationContext } from '../../contexts/publicationsContext'
 import { Container } from './styles'
@@ -61,27 +61,27 @@ function SearchBoxPublication() {
   }
 
   /// Criar contexto...
-  useEffect(() => {
-    // const getPublications = setTimeout(() => {
-    //   api
-    //     .get(`/search/issues`, {
-    //       params: {
-    //         q: searchText + 'repo:patricfonseca/ignite-github-blog/',
-    //       },
-    //     })
-    //     .then((response) => {
-    //       const newPublications: Publication[] = []
-    //       response.data.items.forEach((item: Publication) => {
-    //         newPublications.push({
-    //           title: item.title,
-    //           body: item.body,
-    //         })
-    //       })
-    //       addPublications(newPublications)
-    //     })
-    // }, 5000)
-    // return () => clearTimeout(getPublications)
-  }, [addPublications])
+  // useEffect(() => {
+  // const getPublications = setTimeout(() => {
+  //   api
+  //     .get(`/search/issues`, {
+  //       params: {
+  //         q: searchText + 'repo:patricfonseca/ignite-github-blog/',
+  //       },
+  //     })
+  //     .then((response) => {
+  //       const newPublications: Publication[] = []
+  //       response.data.items.forEach((item: Publication) => {
+  //         newPublications.push({
+  //           title: item.title,
+  //           body: item.body,
+  //         })
+  //       })
+  //       addPublications(newPublications)
+  //     })
+  // }, 5000)
+  // return () => clearTimeout(getPublications)
+  // }, [addPublications])
 
   // useEffect(() => {
   //   console.log(formValues.usuario)

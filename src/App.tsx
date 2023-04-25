@@ -1,16 +1,19 @@
-import { Home } from './pages/Home'
-import './global.css'
 import { ThemeProvider } from 'styled-components'
 import { PublicationsProvider } from './contexts/publicationsContext'
+// import { Home } from './pages/Home'
+import { Publication } from './pages/Publication'
 
 import { defaultTheme } from './styles/themes/default'
+
+import './global.css'
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <PublicationsProvider>
         <div className="App">
-          <Home />
+          {/* <Home /> */}
+          <Publication />
         </div>
       </PublicationsProvider>
     </ThemeProvider>

@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react'
-import { Footer, Header, InfoProfile, Profile } from './styles'
+import { Footer, InfoProfile, Profile } from './styles'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowUpRightFromSquare,
   faBuilding,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import logo from '../../assets/logo.svg'
-import headerBackground from '../../assets/header.svg'
 
 import { api } from '../../libs/axios'
 import { useTheme } from 'styled-components'
 import SearchBoxPublication from '../../components/SearchBox'
 import PublicationsGallery from '../../components/PublicationsGallery'
+import { Header } from '../../components/Header'
 
 export function Home() {
   const theme = useTheme()
@@ -43,9 +42,7 @@ export function Home() {
 
   return (
     <div>
-      <Header backgroundImage={headerBackground}>
-        <img src={logo} alt="" />
-      </Header>
+      <Header />
       <Profile>
         <img src={imgProfile} alt="" />
         <InfoProfile>
