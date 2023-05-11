@@ -4,6 +4,7 @@ import { PublicationContext } from '../../contexts/publicationsContext'
 import { Container } from './styles'
 
 interface IPublication {
+  number: string
   title: string
   body: string
 }
@@ -42,11 +43,13 @@ function SearchBoxPublication() {
         },
       })
       .then((response) => {
+        console.log(JSON.stringify(response.data))
         const newPublications: IPublication[] = []
         response.data.items.forEach((item: IPublication) => {
           newPublications.push({
             title: item.title,
             body: item.body,
+            number: item.number,
           })
         })
         addPublications(newPublications)

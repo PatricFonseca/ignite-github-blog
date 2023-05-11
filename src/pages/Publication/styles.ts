@@ -67,3 +67,12 @@ export const Footer = styled.footer`
     margin-left: 0.2rem;
   }
 `
+
+export const Content = styled.div`
+  max-width: 864px;
+  margin: 1rem auto 0;
+  color: ${(props) => props.theme['gray-400']};
+  /* background-color: ${(props) => props.theme['light-steelblue-400']}; */
+  padding: 2rem;
+  border-radius: 6px;
+`

@@ -33,10 +33,14 @@ export const PublicationItem = styled.a`
     font-size: 1rem;
     color: ${(props) => props.theme['gray-400']};
 
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    -webkit-line-clamp: 1; */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    line-clamp: 4;
-    -webkit-line-clamp: 4;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
     overflow: hidden;
   }
 `

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Footer, InfoProfile, Profile } from './styles'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowUpRightFromSquare,
@@ -12,6 +11,7 @@ import { useTheme } from 'styled-components'
 import SearchBoxPublication from '../../components/SearchBox'
 import PublicationsGallery from '../../components/PublicationsGallery'
 import { Header } from '../../components/Header'
+import { Footer, InfoProfile, Profile } from './styles'
 
 export function Home() {
   const theme = useTheme()

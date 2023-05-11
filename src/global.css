@@ -5,13 +5,6 @@ span,
 applet,
 object,
 iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
 blockquote,
 pre,
 a,
@@ -80,16 +73,26 @@ mark,
 audio,
 video {
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
     border: 0;
     font-size: 100%;
     line-height: 160%;
-    /* font: inherit; */
     font-family: 'Nunito', sans-serif;
     vertical-align: baseline;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    font-family: 'Nunito', sans-serif;
+}
+
 /* HTML5 display-role reset for older browsers */
+
 article,
 aside,
 details,
@@ -102,13 +105,13 @@ menu,
 nav,
 section {
     display: block;
-}
+} 
 
 body {
     line-height: 1;
     background-color: #071422;
 }
-
+ /*
 ol,
 ul {
     list-style: none;
@@ -132,12 +135,16 @@ table {
     border-spacing: 0;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;   
-}
 
+
+
+ */
 a {
     text-decoration: none;
+}
+
+* {
+    margin: 0;
+    /* padding: 0; */
+    box-sizing: border-box;   
 }

@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from 'react'
 
 interface IPublication {
+  number: string
   title: string
   body: string
 }

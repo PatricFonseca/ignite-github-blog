@@ -1,11 +1,11 @@
+// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { PublicationsProvider } from './contexts/publicationsContext'
-// import { Home } from './pages/Home'
-import { Publication } from './pages/Publication'
 
 import { defaultTheme } from './styles/themes/default'
 
 import './global.css'
+import { Router } from './router'
 
 function App() {
   return (
@@ -13,7 +13,9 @@ function App() {
       <PublicationsProvider>
         <div className="App">
           {/* <Home /> */}
-          <Publication />
+          <Router />
+          {/* <RouterProvider router={router} /> */}
+          {/* <Publication /> */}
         </div>
       </PublicationsProvider>
     </ThemeProvider>
