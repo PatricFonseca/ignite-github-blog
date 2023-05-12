@@ -2,11 +2,13 @@ import { useState, useContext, KeyboardEvent } from 'react'
 import { api } from '../../libs/axios'
 import { PublicationContext } from '../../contexts/publicationsContext'
 import { Container } from './styles'
+import { getPlainText } from '../../libs/markdown'
 
 interface IPublication {
   number: string
   title: string
   body: string
+  shortBody: string
 }
 
 // interface ISearchTest {
@@ -50,6 +52,7 @@ function SearchBoxPublication() {
             title: item.title,
             body: item.body,
             number: item.number,
+            shortBody: getPlainText(item.body),
           })
         })
         addPublications(newPublications)

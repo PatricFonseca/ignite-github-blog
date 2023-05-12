@@ -5,9 +5,9 @@ export const MarkdownStyled = styled(ReactMarkdown)`
   font-family: 'Nunito';
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
     sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
-  color: ${(props) => props.theme.white};
+  color: ${(props) => props.theme['gray-400']};
 
   h1,
   h2,
@@ -22,7 +22,7 @@ export const MarkdownStyled = styled(ReactMarkdown)`
   }
 
   p {
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
   }
 
   strong {
@@ -49,5 +49,9 @@ export const MarkdownStyled = styled(ReactMarkdown)`
 
   code {
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, mon;
+  }
+
+  a {
+    color: ${(props) => props.theme['blue-400']};
   }
 `
