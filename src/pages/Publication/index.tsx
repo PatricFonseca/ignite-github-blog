@@ -55,20 +55,24 @@ export function Publication() {
       <HeaderContainer>
         <Actions>
           <div>
-            <FontAwesomeIcon
-              icon={faChevronLeft}
-              color={theme['blue-400']}
-              size={'sm'}
-            />
-            <Link to={'/'}>Voltar</Link>
+            <Link to={'/'}>
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                color={theme['blue-400']}
+                size={'sm'}
+              />
+              {'\u00A0'} Voltar
+            </Link>
           </div>
           <div>
-            <a href={publication.link}>ver no github</a>
-            <FontAwesomeIcon
-              icon={faArrowUpRightFromSquare}
-              color={theme['blue-400']}
-              size={'sm'}
-            />
+            <a href={publication.link}>
+              ver no github {'\u00A0'}
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                color={theme['blue-400']}
+                size={'sm'}
+              />
+            </a>
           </div>
         </Actions>
         <h1>{publication.title}</h1>

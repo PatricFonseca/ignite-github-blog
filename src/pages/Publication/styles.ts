@@ -40,14 +40,6 @@ export const Actions = styled.div`
     font-weight: bold;
     line-height: 160%;
   }
-
-  div:first-child a {
-    margin-left: 0.8rem;
-  }
-
-  div:last-child a {
-    margin-right: 0.8rem;
-  }
 `
 
 export const Footer = styled.footer`
