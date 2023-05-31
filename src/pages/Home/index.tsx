@@ -26,7 +26,6 @@ export function Home() {
   async function getUserProfile() {
     const response = await api.get('users/patricfonseca')
 
-    console.log(response.data)
     setUserProfile(response.data.login)
     setCompanyProfile(response.data.company || 'não informada')
     setFollowers(response.data.followers)

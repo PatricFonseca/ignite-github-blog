@@ -47,7 +47,8 @@ export const Footer = styled.footer`
   gap: 1rem;
   margin-top: 1.4rem;
 
-  span {
+  span,
+  time {
     margin-top: 0.5rem;
     font-size: 1rem;
     font-weight: 400;
@@ -55,7 +56,8 @@ export const Footer = styled.footer`
     color: ${(props) => props.theme['gray-400']};
   }
 
-  span {
+  span,
+  time {
     margin-left: 0.2rem;
   }
 `

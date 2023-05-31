@@ -14,11 +14,12 @@ import { api } from '../../libs/axios'
 import { Header } from '../../components/Header'
 import { Actions, Content, Footer, HeaderContainer } from './styles'
 import Markdown from '../../components/Markdown'
+import useFormattedDate from '../../hooks/useFormattedDate'
 
 interface IPublication {
   title: string
   body: string
-  createdAt: string
+  createdAt: Date
   comments: string
   author: string
   link: string
@@ -38,7 +39,7 @@ export function Publication() {
         setPublication({
           title: response.data.title,
           body: response.data.body,
-          createdAt: response.data.createdAt,
+          createdAt: response.data.created_at,
           comments: response.data.comments,
           author: response.data.user.login,
           link: response.data.html_url,
@@ -48,6 +49,11 @@ export function Publication() {
         console.log(error)
       })
   }, [params])
+
+  const {
+    dateFormatted: createdAtFormatted,
+    dateRelativeToNow: createdAtRelativeToNow,
+  } = useFormattedDate(publication?.createdAt || 0)
 
   return (
     <>
@@ -90,7 +96,9 @@ export function Publication() {
               icon={faCalendarDay}
               color={theme['light-steelblue-200']}
             />
-            <span>{publication.createdAt}</span>
+            <time title={createdAtFormatted} dateTime={createdAtFormatted}>
+              {createdAtRelativeToNow}
+            </time>
             {/* há 1 dia */}
           </div>
           <div>

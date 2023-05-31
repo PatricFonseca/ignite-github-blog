@@ -1,30 +1,29 @@
 import { useContext } from 'react'
-import { format, formatDistanceToNow } from 'date-fns'
 import { Container, PublicationHeader, PublicationItem } from './styles'
 import { PublicationContext } from '../../contexts/publicationsContext'
-import ptBR from 'date-fns/locale/pt-BR'
+import useFormattedDate from '../../hooks/useFormattedDate'
+// import { title } from 'process'
+// import { time } from 'console'
 
 function PublicationsGallery() {
   const { publications } = useContext(PublicationContext)
+
+  function PublicationDate({ date }: { date: Date }) {
+    const { dateFormatted, dateRelativeToNow: createdAtRelativeToNow } =
+      useFormattedDate(date)
+
+    return (
+      <time title={dateFormatted} dateTime={date.toISOString()}>
+        {createdAtRelativeToNow}
+      </time>
+    )
+  }
+
   return (
     <Container>
       {publications.map((publication) => {
         const text = publication.shortBody
         const characterLimit = 440
-        const dataFormatted = format(
-          publication.createdAt,
-          "d 'de' LLLL 'às' HH:mm'h'",
-          {
-            locale: ptBR,
-          },
-        )
-        const createdAtRelativeToNow = formatDistanceToNow(
-          publication.createdAt,
-          {
-            locale: ptBR,
-            addSuffix: true,
-          },
-        )
 
         if (text?.length > characterLimit) {
           // text = text.slice(0, characterLimit) + '...'
@@ -37,12 +36,8 @@ function PublicationsGallery() {
             >
               <PublicationHeader>
                 <h4>{publication.title}</h4>
-                <time
-                  title={dataFormatted}
-                  dateTime={publication.createdAt.toISOString()}
-                >
-                  {createdAtRelativeToNow}
-                </time>
+
+                <PublicationDate date={publication.createdAt} />
               </PublicationHeader>
               <p>{text}</p>
               {/* <Markdown>{text}</Markdown> */}
