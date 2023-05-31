@@ -55,7 +55,7 @@ export const PublicationHeader = styled.header`
     max-width: 70%;
   }
 
-  span {
+  time {
     font-size: 0.87rem;
     font-weight: 400;
     line-height: 160%;

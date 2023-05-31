@@ -8,6 +8,14 @@ interface IPublication {
   title: string
   body: string
   shortBody: string
+  createdAt: Date
+}
+
+interface PublicationResponse {
+  number: string
+  title: string
+  body: string
+  created_at: Date
 }
 
 interface PublicationContextProps {
@@ -29,36 +37,16 @@ export function PublicationsProvider({ children }: PublicationProps) {
   }
 
   useEffect(() => {
-    // function extractTextFromMarkdown(markdown: string): string {
-    //   const tree = unified().use(remarkParse).parse(markdown)
-
-    //   function extractText(node: Node): string {
-    //     if (node.type === 'text') {
-    //       return mdastToString(node)
-    //     } else if (isNodeWithChildren(node)) {
-    //       return node.children.map(extractText).join('')
-    //     }
-    //     return ''
-    //   }
-
-    //   const plainText = extractText(tree)
-
-    //   return plainText
-    // }
-
-    // function getPlainText(body: string) {
-    //   return extractTextFromMarkdown(body)
-    // }
-
     const publicationsArray: IPublication[] = []
 
     api.get('repos/patricfonseca/ignite-github-blog/issues').then((resp) => {
-      resp.data.forEach((publication: IPublication) => {
+      resp.data.forEach((publication: PublicationResponse) => {
         const pub = {} as IPublication
 
         pub.body = publication.body
         pub.number = publication.number
         pub.title = publication.title
+        pub.createdAt = new Date(publication.created_at)
         pub.shortBody = getPlainText(publication.body)
         publicationsArray.push(pub)
       })

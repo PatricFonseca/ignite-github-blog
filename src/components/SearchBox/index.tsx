@@ -3,12 +3,21 @@ import { api } from '../../libs/axios'
 import { PublicationContext } from '../../contexts/publicationsContext'
 import { Container } from './styles'
 import { getPlainText } from '../../libs/markdown'
+import imgLoading from '../../assets/loading.svg'
 
 interface IPublication {
   number: string
   title: string
   body: string
   shortBody: string
+  createdAt: Date
+}
+
+interface PublicationResponse {
+  number: string
+  title: string
+  body: string
+  created_at: Date
 }
 
 // interface ISearchTest {
@@ -47,12 +56,13 @@ function SearchBoxPublication() {
       .then((response) => {
         console.log(JSON.stringify(response.data))
         const newPublications: IPublication[] = []
-        response.data.items.forEach((item: IPublication) => {
+        response.data.items.forEach((item: PublicationResponse) => {
           newPublications.push({
             title: item.title,
             body: item.body,
             number: item.number,
             shortBody: getPlainText(item.body),
+            createdAt: new Date(item.created_at),
           })
         })
         addPublications(newPublications)
@@ -65,33 +75,6 @@ function SearchBoxPublication() {
       getPublications()
     }
   }
-
-  /// Criar contexto...
-  // useEffect(() => {
-  // const getPublications = setTimeout(() => {
-  //   api
-  //     .get(`/search/issues`, {
-  //       params: {
-  //         q: searchText + 'repo:patricfonseca/ignite-github-blog/',
-  //       },
-  //     })
-  //     .then((response) => {
-  //       const newPublications: Publication[] = []
-  //       response.data.items.forEach((item: Publication) => {
-  //         newPublications.push({
-  //           title: item.title,
-  //           body: item.body,
-  //         })
-  //       })
-  //       addPublications(newPublications)
-  //     })
-  // }, 5000)
-  // return () => clearTimeout(getPublications)
-  // }, [addPublications])
-
-  // useEffect(() => {
-  //   console.log(formValues.usuario)
-  // }, [formValues])
 
   return (
     <>
@@ -107,7 +90,9 @@ function SearchBoxPublication() {
           onChange={(e) => setSearchText(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        {isLoading && <h2>Loading</h2>}
+        {isLoading && (
+          <img src={imgLoading} alt="imagem de um círculo girando" />
+        )}
       </Container>
     </>
   )

@@ -28,7 +28,7 @@ export function Home() {
 
     console.log(response.data)
     setUserProfile(response.data.login)
-    setCompanyProfile(response.data.company || 'not avaliable')
+    setCompanyProfile(response.data.company || 'não informada')
     setFollowers(response.data.followers)
     setImgProfile(response.data.avatar_url)
     setBioProfile(response.data.bio)
